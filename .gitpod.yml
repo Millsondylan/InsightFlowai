@@ -1,0 +1,23 @@
+image: gitpod/workspace-full
+
+tasks:
+  - name: Setup Python Environment
+    command: |
+      python3 -m venv venv
+      source venv/bin/activate
+      pip install -r requirements.txt
+
+  - name: Run Application
+    command: |
+      source venv/bin/activate
+      python3 -m src.bot
+    openMode: split-right
+
+ports:
+  - port: 5000
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - ms-python.python
+    - ms-python.vscode-pylance 
